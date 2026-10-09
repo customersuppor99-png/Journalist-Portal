@@ -3,57 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>রিপোর্টার পোর্টাল ও পার্সেল অনুসন্ধান | মিডিয়া নেটওয়ার্ক</title>
+  <title>রিপোর্টার পোর্টাল ও পার্সেল অনুসন্ধান | ডিজিটাল মিডিয়া নেটওয়ার্ক</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts & Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
     body {
       font-family: 'Hind Siliguri', sans-serif;
     }
-    .pulse-btn {
-      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    /* অ্যানিমেশন ও নিয়ন ইফেক্ট */
+    .glow-card {
+      box-shadow: 0 0 35px -5px rgba(239, 68, 68, 0.35), 0 0 15px -3px rgba(245, 158, 11, 0.25);
     }
-    @keyframes pulse-ring {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .85; transform: scale(1.03); }
+    .call-btn-glow {
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+      animation: callPulse 1.8s infinite;
+    }
+    @keyframes callPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(16, 185, 129, 0.6); }
+      50% { transform: scale(1.03); box-shadow: 0 0 32px rgba(16, 185, 129, 0.9); }
+    }
+    .badge-shimmer {
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
     }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col selection:bg-rose-500 selection:text-white">
+<body class="bg-[#0b0f19] text-slate-100 min-h-screen flex flex-col selection:bg-rose-500 selection:text-white">
 
-  <!-- টপ নিউজ টিকার / ব্রেকিং নিউজ -->
-  <div class="bg-rose-600 text-white text-sm py-2 px-4 shadow-md flex items-center">
-    <div class="flex items-center font-bold tracking-wide mr-3 shrink-0">
-      <i class="fa-solid fa-bolt mr-2 animate-bounce"></i> জরুরি নোটিশ:
+  <!-- টপ নিউজ টিকার / ব্রেকিং স্ট্রিপ -->
+  <div class="bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 text-white text-sm py-2.5 px-4 shadow-lg flex items-center border-b border-red-400/30">
+    <div class="flex items-center font-extrabold tracking-wide mr-3 shrink-0 bg-black/30 px-3 py-0.5 rounded-full backdrop-blur-sm">
+      <i class="fa-solid fa-bolt text-yellow-300 mr-2 animate-bounce"></i> জরুরি নোটিশ:
     </div>
-    <marquee class="font-medium">
-      সকল সম্মানিত জেলা ও উপজেলা প্রতিনিধিদের জানানো যাচ্ছে—আপনার নামে প্রেরিত প্রাতিষ্ঠানিক ও সাংবাদিক সরঞ্জামাদি পার্সেল দ্রুত সংগ্রহ করুন। পার্সেল গ্রহণের পর আইডি কার্ড ভেরিফিকেশন এবং মাসিক সম্মানী প্রক্রিয়া কার্যকর হবে।
+    <marquee class="font-semibold tracking-wide text-amber-100">
+      সকল সম্মানিত প্রতিনিধিদের দৃষ্টি আকর্ষণ করা যাচ্ছে—আপনার নামে প্রেরিত প্রাতিষ্ঠানিক ও সাংবাদিক সরঞ্জামাদি পার্সেল দ্রুত সংগ্রহ করুন। পার্সেল গ্রহণের সাথে সাথে প্রেস আইডি কার্ড অ্যাক্টিভেশন ও মাসিক সম্মানী কার্যকর হবে।
     </marquee>
   </div>
 
   <!-- নেভিগেশন বার -->
-  <header class="bg-slate-800/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-700 shadow-xl">
+  <header class="bg-[#111827]/90 backdrop-blur-xl sticky top-0 z-50 border-b border-slate-700/80 shadow-2xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <div class="h-12 w-12 rounded-xl bg-gradient-to-tr from-rose-600 to-indigo-600 flex items-center justify-center text-white shadow-lg">
+        <div class="h-12 w-12 rounded-2xl bg-gradient-to-tr from-rose-600 via-purple-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-rose-500/30 ring-2 ring-white/10">
           <i class="fa-solid fa-newspaper text-2xl"></i>
         </div>
         <div>
-          <span class="text-2xl font-bold tracking-tight text-white block">মিডিয়া নেটওয়ার্ক পোর্টাল</span>
-          <span class="text-xs text-rose-400 font-semibold tracking-wider uppercase">ডিজিটাল জার্নালিজম প্ল্যাটফর্ম</span>
+          <span class="text-2xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent block">মিডিয়া নেটওয়ার্ক পোর্টাল</span>
+          <span class="text-xs text-rose-400 font-bold tracking-widest uppercase">ডিজিটাল জার্নালিজম প্ল্যাটফর্ম</span>
         </div>
       </div>
-      <div class="hidden md:flex items-center space-x-6 text-sm font-semibold">
-        <a href="#search-section" class="hover:text-rose-400 transition-colors">তথ্য অনুসন্ধান</a>
-        <a href="#features-section" class="hover:text-rose-400 transition-colors">প্রিমিয়াম ফিচার</a>
-        <a href="#benefits-section" class="hover:text-rose-400 transition-colors">সুযোগ-সুবিধা</a>
-        <a href="#search-section" class="bg-rose-600 hover:bg-rose-700 text-white px-5 py-2.5 rounded-full font-bold shadow-md transition-all">
+      <div class="hidden md:flex items-center space-x-6 text-sm font-bold">
+        <a href="#search-section" class="text-slate-300 hover:text-white transition-colors">তথ্য অনুসন্ধান</a>
+        <a href="#features-section" class="text-slate-300 hover:text-white transition-colors">ফিচারসমূহ</a>
+        <a href="#benefits-section" class="text-slate-300 hover:text-white transition-colors">সুযোগ-সুবিধা</a>
+        <a href="#search-section" class="bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white px-6 py-2.5 rounded-full font-extrabold shadow-lg shadow-rose-600/30 transition-all border border-rose-400/40">
           <i class="fa-solid fa-box-open mr-1.5"></i> পার্সেল চেক করুন
         </a>
       </div>
@@ -61,145 +75,150 @@
   </header>
 
   <!-- হিরো ও অনুসন্ধান সেকশন -->
-  <section id="search-section" class="relative pt-12 pb-20 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+  <section id="search-section" class="relative pt-14 pb-20 overflow-hidden bg-gradient-to-b from-[#0b0f19] via-[#131c31] to-[#0b0f19]">
+    <!-- ব্যাকগ্রাউন্ড গ্লো ইফেক্ট -->
+    <div class="absolute top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-rose-600/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-40 right-10 w-80 h-80 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-semibold mb-6">
-        <i class="fa-solid fa-bell"></i> সকল বিভাগীয়, জেলা ও উপজেলা প্রতিনিধিদের জন্য আবশ্যক
+      <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-rose-500/20 to-amber-500/20 border border-rose-500/40 text-amber-300 text-sm font-extrabold mb-6 shadow-inner">
+        <i class="fa-solid fa-star text-amber-400"></i> সকল জেলা ও উপজেলা প্রতিনিধিদের জন্য জরুরি
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight mb-4">
-        সাংবাদিক উপকরণ ও পার্সেল <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-amber-300">তথ্য অনুসন্ধান</span>
+      <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight mb-4">
+        সাংবাদিক উপকরণ ও পার্সেল <br class="hidden sm:inline" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-amber-300 to-emerald-400">তথ্য অনুসন্ধান করুন</span>
       </h1>
-      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-        আমাদের প্রতিষ্ঠানের পক্ষ থেকে আপনার জন্য প্রেরিত গুরুত্বপূর্ণ অফিসিয়াল সামগ্রী ও সাংবাদিকতার উপকরণ দ্রুত সংগ্রহ নিশ্চিত করতে নিচে আপনার মোবাইল নম্বরটি লিখে অনুসন্ধান করুন।
+      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+        আপনার জন্য প্রেরিত অত্যন্ত মূল্যবান অফিশিয়াল সাংবাদিক উপকরণ, আইডি কার্ড ও কিট ডেলিভারি পয়েন্টে এসেছে। নিচে মোবাইল নম্বর দিয়ে ডেলিভারি ম্যানের সাথে সরাসরি যোগাযোগ করুন।
       </p>
 
       <!-- সার্চ বক্স -->
-      <div class="bg-slate-800/80 p-3 sm:p-4 rounded-2xl border border-slate-700 shadow-2xl max-w-2xl mx-auto backdrop-blur-md">
+      <div class="bg-gradient-to-b from-slate-800/95 to-slate-900/95 p-3 sm:p-5 rounded-3xl border-2 border-slate-700/80 shadow-2xl max-w-2xl mx-auto backdrop-blur-xl">
         <form id="searchForm" class="flex flex-col sm:flex-row gap-3">
           <div class="relative flex-grow">
-            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
-              <i class="fa-solid fa-phone text-lg"></i>
+            <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-rose-400">
+              <i class="fa-solid fa-mobile-screen text-xl"></i>
             </div>
             <input 
               type="text" 
               id="phoneInput" 
               placeholder="আপনার মোবাইল নম্বর লিখুন (যেমন: 01717155729)" 
-              class="w-full pl-12 pr-4 py-4 rounded-xl bg-slate-900/90 text-white placeholder-slate-400 border border-slate-600 focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 text-lg transition-all"
+              class="w-full pl-14 pr-4 py-4 rounded-2xl bg-slate-950/90 text-white placeholder-slate-500 border border-slate-700 focus:outline-none focus:border-rose-500 focus:ring-4 focus:ring-rose-500/20 text-lg font-medium transition-all"
               required
             >
           </div>
           <button 
             type="submit" 
-            class="bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-rose-500/25 transition-all text-lg flex items-center justify-center gap-2 shrink-0 pulse-btn"
+            class="bg-gradient-to-r from-rose-600 via-red-600 to-amber-500 hover:from-rose-500 hover:to-amber-400 text-white font-black px-8 py-4 rounded-2xl shadow-xl shadow-rose-600/30 transition-all text-lg flex items-center justify-center gap-2.5 shrink-0 border border-white/20 active:scale-95"
           >
-            <i class="fa-solid fa-magnifying-glass"></i>
-            তথ্য অনুসন্ধান করুন
+            <i class="fa-solid fa-magnifying-glass text-xl"></i>
+            তথ্য অনুসন্ধান
           </button>
         </form>
       </div>
 
       <!-- ফলাফল কন্টেইনার -->
-      <div id="resultContainer" class="mt-10 text-left hidden"></div>
+      <div id="resultContainer" class="mt-12 text-left hidden"></div>
 
     </div>
   </section>
 
-  <!-- প্রিমিয়াম ফিচার ও টেকনোলজি সেকশন -->
-  <section id="features-section" class="py-16 bg-slate-950/60 border-t border-slate-800">
+  <!-- প্রিমিয়াম ফিচার সেকশন -->
+  <section id="features-section" class="py-20 bg-slate-950/80 border-t border-slate-800 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="text-rose-400 text-sm font-bold tracking-widest uppercase">Cutting-Edge Features</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-4 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-black tracking-widest uppercase inline-block">High Tech Infrastructure</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white mt-3">
           💥 আমাদের আধুনিক প্রযুক্তি ও প্রিমিয়াম ফিচার
         </h2>
-        <div class="w-20 h-1 bg-rose-600 mx-auto mt-4 rounded-full"></div>
+        <div class="w-24 h-1.5 bg-gradient-to-r from-rose-500 to-amber-400 mx-auto mt-4 rounded-full"></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
-        <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 hover:border-rose-500/50 transition-all hover:-translate-y-1">
-          <div class="h-12 w-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl mb-4">
+        <div class="p-6 rounded-3xl bg-gradient-to-b from-slate-800/80 to-slate-900/90 border border-slate-700/80 hover:border-rose-500/60 transition-all hover:-translate-y-1.5 shadow-xl">
+          <div class="h-14 w-14 rounded-2xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-2xl mb-4 border border-rose-500/30">
             <i class="fa-solid fa-bolt"></i>
           </div>
           <h3 class="text-lg font-bold text-white mb-2">Super Fast & Optimized</h3>
-          <p class="text-slate-400 text-sm">বাংলা ও ইংরেজি নিউজের জন্য আল্ট্রা-ফাস্ট লোডিং ও বিশেষ রেসপন্সিভ ডিজাইন।</p>
+          <p class="text-slate-400 text-sm leading-relaxed">বাংলা ও ইংরেজি নিউজের জন্য বিশেষ ডিজাইনে তৈরি আল্ট্রা-ফাস্ট কর্মক্ষমতা।</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 hover:border-rose-500/50 transition-all hover:-translate-y-1">
-          <div class="h-12 w-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-4">
+        <div class="p-6 rounded-3xl bg-gradient-to-b from-slate-800/80 to-slate-900/90 border border-slate-700/80 hover:border-indigo-500/60 transition-all hover:-translate-y-1.5 shadow-xl">
+          <div class="h-14 w-14 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl mb-4 border border-indigo-500/30">
             <i class="fa-solid fa-robot"></i>
           </div>
           <h3 class="text-lg font-bold text-white mb-2">AI News Voiceover</h3>
-          <p class="text-slate-400 text-sm">কৃত্রিম বুদ্ধিমত্তা দ্বারা স্বয়ংক্রিয় সংবাদ পাঠ ও অডিও ট্রান্সলেশন সুবিধা।</p>
+          <p class="text-slate-400 text-sm leading-relaxed">কৃত্রিম বুদ্ধিমত্তার মাধ্যমে স্বয়ংক্রিয় ভয়েসওভার ও টেক্সট-টু-স্পিচ সুবিধা।</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 hover:border-rose-500/50 transition-all hover:-translate-y-1">
-          <div class="h-12 w-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4">
+        <div class="p-6 rounded-3xl bg-gradient-to-b from-slate-800/80 to-slate-900/90 border border-slate-700/80 hover:border-emerald-500/60 transition-all hover:-translate-y-1.5 shadow-xl">
+          <div class="h-14 w-14 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-4 border border-emerald-500/30">
             <i class="fa-solid fa-camera-retro"></i>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">Auto Photocard & Social</h3>
-          <p class="text-slate-400 text-sm">অটোমেটিক ফটোরূপান্তর, ওয়াটারমার্ক এবং ওয়ান-ক্লিকে সোশ্যাল মিডিয়া শেয়ারিং।</p>
+          <h3 class="text-lg font-bold text-white mb-2">Auto Photocard & Facebook</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">অটোমেটিক ফটোরূপান্তর, ওয়াটারমার্ক এবং সিঙ্গেল-ক্লিকে সোশ্যাল পোস্ট।</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 hover:border-rose-500/50 transition-all hover:-translate-y-1">
-          <div class="h-12 w-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+        <div class="p-6 rounded-3xl bg-gradient-to-b from-slate-800/80 to-slate-900/90 border border-slate-700/80 hover:border-amber-500/60 transition-all hover:-translate-y-1.5 shadow-xl">
+          <div class="h-14 w-14 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl mb-4 border border-amber-500/30">
             <i class="fa-solid fa-id-card"></i>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">QR Reporter ID Card</h3>
-          <p class="text-slate-400 text-sm">নিরাপদ কিউআর কোড ভেরিফিকেশন সহ অটোমেটিক রিপোর্টার আইডি কার্ড জেনারেশন।</p>
+          <h3 class="text-lg font-bold text-white mb-2">QR Code Reporter ID</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">এনক্রিপ্টেড কিউআর কোড সম্বলিত অফিশিয়াল অনলাইন ভেরিফায়েড আইডি কার্ড।</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 hover:border-rose-500/50 transition-all hover:-translate-y-1">
-          <div class="h-12 w-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl mb-4">
+        <div class="p-6 rounded-3xl bg-gradient-to-b from-slate-800/80 to-slate-900/90 border border-slate-700/80 hover:border-sky-500/60 transition-all hover:-translate-y-1.5 shadow-xl">
+          <div class="h-14 w-14 rounded-2xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-2xl mb-4 border border-sky-500/30">
             <i class="fa-solid fa-map-location-dot"></i>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">Interactive Map System</h3>
-          <p class="text-slate-400 text-sm">জেলা, উপজেলা ও ইউনিয়ন ভিত্তিক স্বয়ংক্রিয় নিউজ ম্যাপিং ও ফিল্টারিং ব্যবস্থা।</p>
+          <h3 class="text-lg font-bold text-white mb-2">Interactive News Map</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">জেলা, উপজেলা ও ইউনিয়ন ভিত্তিক স্বয়ংক্রিয় ইন্টারেক্টিভ ম্যাপ ফিল্টারিং।</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 hover:border-rose-500/50 transition-all hover:-translate-y-1">
-          <div class="h-12 w-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-4">
+        <div class="p-6 rounded-3xl bg-gradient-to-b from-slate-800/80 to-slate-900/90 border border-slate-700/80 hover:border-purple-500/60 transition-all hover:-translate-y-1.5 shadow-xl">
+          <div class="h-14 w-14 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-2xl mb-4 border border-purple-500/30">
             <i class="fa-solid fa-tv"></i>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">Live TV & Radio</h3>
-          <p class="text-slate-400 text-sm">২৪/৭ অনলাইন আইপি টিভি স্ট্রিমিং ও আধুনিক অনলাইন রেডিও ব্রডকাস্টিং।</p>
+          <h3 class="text-lg font-bold text-white mb-2">Live TV & Online Radio</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">এইচডি লাইভ আইপিটিভি স্ট্রিমিং ও ২৪/৭ নিরবচ্ছিন্ন অনলাইন ব্রডকাস্ট।</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 hover:border-rose-500/50 transition-all hover:-translate-y-1">
-          <div class="h-12 w-12 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center text-xl mb-4">
+        <div class="p-6 rounded-3xl bg-gradient-to-b from-slate-800/80 to-slate-900/90 border border-slate-700/80 hover:border-yellow-500/60 transition-all hover:-translate-y-1.5 shadow-xl">
+          <div class="h-14 w-14 rounded-2xl bg-yellow-500/20 text-yellow-400 flex items-center justify-center text-2xl mb-4 border border-yellow-500/30">
             <i class="fa-solid fa-cloud-sun"></i>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">লাইভ ওয়েদার ও রিলিজিয়ন</h3>
-          <p class="text-slate-400 text-sm">রিয়েল-টাইম আবহাওয়া বার্তা এবং সঠিক নামাজ, ইফতার ও সাহরির সময়সূচি।</p>
+          <h3 class="text-lg font-bold text-white mb-2">লাইভ ওয়েদার ও রিলিজিয়ন</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">লাইভ আবহাওয়া ট্র্যাকিং এবং নামাজের সঠিক সময়, সাহরি ও ইফতার সময়সূচি।</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 hover:border-rose-500/50 transition-all hover:-translate-y-1">
-          <div class="h-12 w-12 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-xl mb-4">
+        <div class="p-6 rounded-3xl bg-gradient-to-b from-slate-800/80 to-slate-900/90 border border-slate-700/80 hover:border-teal-500/60 transition-all hover:-translate-y-1.5 shadow-xl">
+          <div class="h-14 w-14 rounded-2xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-2xl mb-4 border border-teal-500/30">
             <i class="fa-solid fa-shield-halved"></i>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">কন্টেন্ট সিকিউরিটি</h3>
-          <p class="text-slate-400 text-sm">কপি প্রোটেকশন, আইপি ব্লকিং এবং উচ্চ ক্ষমতাসম্পন্ন সাইবার প্রতিরক্ষা ব্যবস্থা।</p>
+          <h3 class="text-lg font-bold text-white mb-2">হাই-সিকিউরিটি প্রোটেকশন</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">কন্টেন্ট কপি প্রটেকশন, অ্যাডভান্সড আইপি ব্লকিং ও সার্ভার ডিফেন্স।</p>
         </div>
 
       </div>
 
-      <!-- অতিরিক্ত সুবিধা তালিকা -->
-      <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-slate-700 shadow-xl">
-        <h4 class="text-xl font-bold text-amber-300 mb-6 flex items-center gap-2">
-          <i class="fa-solid fa-crown text-amber-400"></i> আরও অন্তর্ভুক্ত সুবিধাসমূহ
+      <!-- আরও থাকছে ফিচার স্ট্রিপ -->
+      <div class="mt-12 p-8 rounded-3xl bg-gradient-to-r from-slate-900 via-purple-950/30 to-slate-900 border-2 border-purple-500/30 shadow-2xl">
+        <h4 class="text-xl font-black text-amber-300 mb-6 flex items-center gap-3">
+          <i class="fa-solid fa-crown text-amber-400 text-2xl"></i> পোর্টালে আরও থাকছে বিশেষ সুবিধাসমূহ
         </h4>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm font-medium text-slate-300">
-          <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> আনলিমিটেড ফটোকার্ড</div>
-          <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> মতামত ও অপিনিয়ন কার্ড</div>
-          <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> স্বয়ংক্রিয় ওয়াটারমার্ক</div>
-          <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> ফেসবুক শেয়ার ব্র্যান্ডিং</div>
-          <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> জরুরি এসএমএস অ্যালার্ট</div>
-          <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> কন্টেন্ট কপি সুরক্ষা</div>
-          <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> মাল্টিমিডিয়া প্রকাশনা</div>
-          <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> স্পেশাল ইভেন্ট কাভারেজ</div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm font-semibold text-slate-200">
+          <div class="flex items-center gap-2.5 bg-slate-800/50 p-2.5 rounded-xl border border-slate-700/60"><i class="fa-solid fa-circle-check text-emerald-400"></i> আনলিমিটেড ফটোকার্ড</div>
+          <div class="flex items-center gap-2.5 bg-slate-800/50 p-2.5 rounded-xl border border-slate-700/60"><i class="fa-solid fa-circle-check text-emerald-400"></i> মতামত ও অপিনিয়ন কার্ড</div>
+          <div class="flex items-center gap-2.5 bg-slate-800/50 p-2.5 rounded-xl border border-slate-700/60"><i class="fa-solid fa-circle-check text-emerald-400"></i> অটোমেটিক ওয়াটারমার্ক</div>
+          <div class="flex items-center gap-2.5 bg-slate-800/50 p-2.5 rounded-xl border border-slate-700/60"><i class="fa-solid fa-circle-check text-emerald-400"></i> ফেসবুক শেয়ার ব্র্যান্ডিং</div>
+          <div class="flex items-center gap-2.5 bg-slate-800/50 p-2.5 rounded-xl border border-slate-700/60"><i class="fa-solid fa-circle-check text-emerald-400"></i> জরুরি এসএমএস সুবিধা</div>
+          <div class="flex items-center gap-2.5 bg-slate-800/50 p-2.5 rounded-xl border border-slate-700/60"><i class="fa-solid fa-circle-check text-emerald-400"></i> কন্টেন্ট কপি প্রোটেকশন</div>
+          <div class="flex items-center gap-2.5 bg-slate-800/50 p-2.5 rounded-xl border border-slate-700/60"><i class="fa-solid fa-circle-check text-emerald-400"></i> মাল্টিমিডিয়া প্রকাশনা</div>
+          <div class="flex items-center gap-2.5 bg-slate-800/50 p-2.5 rounded-xl border border-slate-700/60"><i class="fa-solid fa-circle-check text-emerald-400"></i> স্পেশাল ইভেন্ট কাভারেজ</div>
         </div>
       </div>
 
@@ -207,62 +226,64 @@
   </section>
 
   <!-- সুযোগ-সুবিধা সেকশন -->
-  <section id="benefits-section" class="py-16 bg-slate-900 border-t border-slate-800">
+  <section id="benefits-section" class="py-20 bg-[#0d1322] border-t border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-emerald-400 text-sm font-bold tracking-widest uppercase">Benefits & Compensation</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
-          পার্সেল গ্রহণের পর আপনার প্রাতিষ্ঠানিক সুযোগ-সুবিধা
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-black tracking-widest uppercase inline-block">Official Compensation</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white mt-3">
+          পার্সেল গ্রহণের পর আপনার প্রাতিষ্ঠানিক সুবিধাসমূহ
         </h2>
-        <div class="w-20 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+        <div class="w-24 h-1.5 bg-gradient-to-r from-emerald-500 to-cyan-400 mx-auto mt-4 rounded-full"></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gradient-to-b from-slate-800 to-slate-850 p-8 rounded-2xl border border-slate-700 shadow-xl flex flex-col justify-between">
+        
+        <div class="bg-gradient-to-b from-slate-800/90 to-slate-900/90 p-8 rounded-3xl border-2 border-amber-500/40 shadow-2xl flex flex-col justify-between hover:border-amber-400 transition-all">
           <div>
-            <div class="h-14 w-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-6">
-              <i class="fa-solid fa-sack-dollar"></i>
+            <div class="h-16 w-16 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-3xl mb-6 border border-amber-500/30">
+              <i class="fa-solid fa-money-bill-trend-up"></i>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">অর্থনৈতিক ও বেতন সুবিধা</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-4">
-              পার্সেল রিসিভ করার সাথে সাথে আপনার রিপোর্টার অ্যাকাউন্ট সক্রিয় হবে এবং মাসিক নির্দিষ্ট বেতন কাঠামো ও আকর্ষণীয় বিশেষ ইনসেন্টিভের অন্তর্ভুক্ত হবেন।
+            <h3 class="text-2xl font-black text-white mb-3">মাসিক বেতন ও অর্থনৈতিক সুবিধা</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              পার্সেল রিসিভ সম্পন্ন হলে আপনার রিপোর্টার প্রোফাইল সক্রিয় হবে এবং প্রতিষ্ঠান থেকে নির্ধারিত আকর্ষণীয় সম্মানী ও নিয়মিত মাসিক বেতন কার্যকর হবে।
             </p>
           </div>
-          <div class="text-xs text-amber-300 font-semibold bg-amber-500/10 py-2 px-3 rounded-lg">
-            ✓ নির্ধারিত মাসিক বেতন ও কন্টেন্ট বোনাস
+          <div class="text-xs font-bold text-amber-300 bg-amber-500/20 py-2.5 px-4 rounded-xl border border-amber-500/30">
+            ✓ নির্ধারিত মাসিক বেতন + বিশেষ ইনসেন্টিভ
           </div>
         </div>
 
-        <div class="bg-gradient-to-b from-slate-800 to-slate-850 p-8 rounded-2xl border border-slate-700 shadow-xl flex flex-col justify-between">
+        <div class="bg-gradient-to-b from-slate-800/90 to-slate-900/90 p-8 rounded-3xl border-2 border-rose-500/40 shadow-2xl flex flex-col justify-between hover:border-rose-400 transition-all">
           <div>
-            <div class="h-14 w-14 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-2xl mb-6">
+            <div class="h-16 w-16 rounded-2xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-3xl mb-6 border border-rose-500/30">
               <i class="fa-solid fa-scale-balanced"></i>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">আইনি ও প্রশাসনিক সহায়তা</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-4">
-              মাঠপর্যায়ে সংবাদ সংগ্রহের সময় যেকোনো আইনি সংকট বা প্রশাসনিক জটিলতায় কেন্দ্রীয় লিগ্যাল সেল থেকে সার্বক্ষণিক আইনি নিরাপত্তা ও প্রাতিষ্ঠানিক সহায়তা প্রদান করা হবে।
+            <h3 class="text-2xl font-black text-white mb-3">আইনি ও প্রশাসনিক সুরক্ষা</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              পেশাগত দায়িত্ব পালনে কোনো বাধা, হয়রানি বা জটিলতা দেখা দিলে প্রধান কার্যালয়ের লিগ্যাল সেল থেকে সম্পূর্ণ প্রশাসনিক ও আইনি সহায়তা নিশ্চিত করা হবে।
             </p>
           </div>
-          <div class="text-xs text-rose-300 font-semibold bg-rose-500/10 py-2 px-3 rounded-lg">
-            ✓ সার্বক্ষণিক কেন্দ্রীয় আইনি নিরাপত্তা সেল
+          <div class="text-xs font-bold text-rose-300 bg-rose-500/20 py-2.5 px-4 rounded-xl border border-rose-500/30">
+            ✓ সার্বক্ষণিক কেন্দ্রীয় লিগ্যাল সেল সহায়তা
           </div>
         </div>
 
-        <div class="bg-gradient-to-b from-slate-800 to-slate-850 p-8 rounded-2xl border border-slate-700 shadow-xl flex flex-col justify-between">
+        <div class="bg-gradient-to-b from-slate-800/90 to-slate-900/90 p-8 rounded-3xl border-2 border-indigo-500/40 shadow-2xl flex flex-col justify-between hover:border-indigo-400 transition-all">
           <div>
-            <div class="h-14 w-14 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-6">
-              <i class="fa-solid fa-id-card-clip"></i>
+            <div class="h-16 w-16 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-3xl mb-6 border border-indigo-500/30">
+              <i class="fa-solid fa-certificate"></i>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">সাংবাদিক স্বীকৃতি ও কিট</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-4">
-              অফিসিয়াল প্রেস আইডি কার্ড, অ্যাপয়েন্টমেন্ট লেটার, প্রেস স্টিকার ও মাইক্রোফোন কিউব সহ সকল উপকরণ আপনার পার্সেলের মধ্যে বিদ্যমান রয়েছে।
+            <h3 class="text-2xl font-black text-white mb-3">অফিশিয়াল জার্নালিস্ট কিট</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              আপনার পার্সেলের ভেতরে রয়েছে অফিসিয়াল আইডি কার্ড, নিয়োগপত্র, প্রেস লোগো স্টিকার ও সাংবাদিকতার উপকরণ যা আপনাকে মাঠে পূর্ণ মর্যাদা দেবে।
             </p>
           </div>
-          <div class="text-xs text-indigo-300 font-semibold bg-indigo-500/10 py-2 px-3 rounded-lg">
-            ✓ অফিশিয়াল সাংবাদিক কিট ও স্বীকৃতি
+          <div class="text-xs font-bold text-indigo-300 bg-indigo-500/20 py-2.5 px-4 rounded-xl border border-indigo-500/30">
+            ✓ বৈধ পরিচয়পত্র ও অফিসিয়াল অ্যাক্রিডিটেশন
           </div>
         </div>
+
       </div>
 
     </div>
@@ -271,14 +292,13 @@
   <!-- ফুটার -->
   <footer class="bg-slate-950 border-t border-slate-800 py-10 mt-auto text-slate-400 text-sm text-center">
     <div class="max-w-7xl mx-auto px-4">
-      <p class="font-medium">© ২০২৬ মিডিয়া নেটওয়ার্ক ও রিপোর্টার ম্যানেজমেন্ট পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
-      <p class="text-xs text-slate-500 mt-2">জরুরি প্রয়োজনে বা পার্সেল সংক্রান্ত সমস্যায় যোগাযোগ করুন কেন্দ্রীয় হেল্পলাইন নম্বরে।</p>
+      <p class="font-bold text-slate-300 text-base">© ২০২৬ ডিজিটাল মিডিয়া নেটওয়ার্ক ও রিপোর্টার ম্যানেজমেন্ট সিস্টেম</p>
+      <p class="text-xs text-slate-500 mt-2">যেকোনো জরুরি প্রয়োজনে কেন্দ্রীয় কন্ট্রোল রুম ও সাপোর্ট সেন্টারে যোগাযোগ করুন।</p>
     </div>
   </footer>
 
-  <!-- জাভাস্ক্রিপ্ট কোড ও ডেটাবেজ লজিক -->
+  <!-- জাভাস্ক্রিপ্ট কোড ও ডাটাবেজ -->
   <script>
-    // প্রদত্ত ডাটাবেজ
     const parcelDatabase = [
       { id: "303676771", name: "মুহাঃ মুজাম্মেল হোসাইন", phone: "01717155729", address: "Musafir Tower, 90 Kakrail, Dhaka", riderName: "Nur alom (Mogbazar)", riderPhone: "01797620021", amount: "770" },
       { id: "303677021", name: "মো মইনুল হাসান সাদিক", phone: "01771502637", address: "Mohhamd ali hospital", riderName: "MD: Fahim khan", riderPhone: "01941949473", amount: "770" },
@@ -381,99 +401,139 @@
       if (results.length > 0) {
         results.forEach(info => {
           const card = document.createElement('div');
-          card.className = "bg-slate-800 border-2 border-rose-500/80 rounded-3xl p-6 sm:p-8 shadow-2xl mb-8 transition-all";
+          card.className = "bg-gradient-to-b from-slate-800/95 via-slate-900/95 to-slate-950 p-6 sm:p-9 rounded-[32px] border-2 border-rose-500/80 shadow-2xl glow-card mb-10 transition-all backdrop-blur-xl";
           
           card.innerHTML = `
-            <!-- জরুরি বার্তা ব্যানার -->
-            <div class="bg-rose-500/15 border border-rose-500/30 rounded-2xl p-5 mb-8 text-rose-300 flex items-start gap-4">
-              <div class="text-3xl mt-1 text-rose-500"><i class="fa-solid fa-triangle-exclamation"></i></div>
-              <div>
-                <h4 class="text-xl font-bold text-white mb-1">সম্মানিত প্রতিনিধি, অনুগ্রহ করে ডেলিভারি ম্যানের কাছ থেকে আপনার পার্সেলটি অতিসত্বর গ্রহণ করুন!</h4>
-                <p class="text-sm text-rose-200/90 leading-relaxed">
-                  আপনার প্রাতিষ্ঠানিক সাংবাদিক উপকরণ, আইডি কার্ড ও নিয়োগ সংক্রান্ত সামগ্রী এখনো ডেলিভারি পয়েন্টে রয়েছে। এটি গ্রহণ করার পরেই আপনার নাম সিস্টেমে চূড়ান্ত ভেরিফায়েড হবে এবং আপনি প্রতিষ্ঠানের সকল সুবিধা ভোগ করতে পারবেন।
-                </p>
+            <!-- হেডার ও পার্সেল ট্র্যাকিং স্ট্যাটাস -->
+            <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-700/80 mb-8">
+              <div class="flex items-center gap-3">
+                <div class="h-12 w-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-rose-500 flex items-center justify-center text-white shadow-lg">
+                  <i class="fa-solid fa-box-open text-2xl"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-amber-400">কনফার্মড পার্সেল রেকর্ড</span>
+                  <h3 class="text-xl sm:text-2xl font-black text-white">প্রতিনিধি পার্সেল তথ্য</h3>
+                </div>
+              </div>
+              <div class="bg-rose-500/20 text-rose-300 border border-rose-500/40 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-rose-500 animate-ping"></span> ডেলিভারির অপেক্ষায়
               </div>
             </div>
 
-            <!-- মূল তথ্য গ্রিড -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-900/90 p-6 rounded-2xl border border-slate-700/80 mb-6">
+            <!-- মূল তথ্য কার্ড গ্রিড -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
               
-              <div class="space-y-4">
+              <!-- প্রতিনিধির তথ্য বক্স -->
+              <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-700/80 space-y-4">
+                <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+                  <span class="text-xs uppercase font-extrabold text-slate-400">পার্সেল আইডি</span>
+                  <span class="text-lg font-black text-amber-400 tracking-wider"><i class="fa-solid fa-barcode mr-1.5"></i>${info.id}</span>
+                </div>
+
                 <div>
-                  <span class="text-xs uppercase font-bold text-slate-400">পার্সেল আইডি:</span>
-                  <div class="text-xl font-extrabold text-amber-400 flex items-center gap-2 mt-0.5">
-                    <i class="fa-solid fa-barcode"></i> ${info.id}
+                  <span class="text-xs uppercase font-bold text-slate-400 block mb-1">আপনার নাম:</span>
+                  <div class="text-xl font-black text-white bg-slate-800/60 p-3 rounded-xl border border-slate-700/50 flex items-center gap-2">
+                    <i class="fa-solid fa-user-check text-emerald-400"></i> ${info.name}
                   </div>
                 </div>
 
                 <div>
-                  <span class="text-xs uppercase font-bold text-slate-400">আপনার নাম:</span>
-                  <div class="text-lg font-bold text-white mt-0.5">${info.name}</div>
+                  <span class="text-xs uppercase font-bold text-slate-400 block mb-1">আপনার মোবাইল নাম্বার:</span>
+                  <div class="text-lg font-extrabold text-slate-200 bg-slate-800/60 p-3 rounded-xl border border-slate-700/50 flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-sky-400"></i> ${info.phone}
+                  </div>
                 </div>
 
                 <div>
-                  <span class="text-xs uppercase font-bold text-slate-400">আপনার মোবাইল নাম্বার:</span>
-                  <div class="text-base font-semibold text-slate-200 mt-0.5">${info.phone}</div>
-                </div>
-
-                <div>
-                  <span class="text-xs uppercase font-bold text-slate-400">আপনার ঠিকানা:</span>
-                  <div class="text-sm text-slate-300 mt-0.5 leading-snug"><i class="fa-solid fa-location-dot text-rose-400 mr-1.5"></i>${info.address}</div>
+                  <span class="text-xs uppercase font-bold text-slate-400 block mb-1">আপনার ঠিকানা:</span>
+                  <div class="text-sm font-semibold text-slate-300 bg-slate-800/60 p-3 rounded-xl border border-slate-700/50 leading-relaxed flex items-start gap-2">
+                    <i class="fa-solid fa-location-dot text-rose-400 mt-1"></i> ${info.address}
+                  </div>
                 </div>
               </div>
 
-              <div class="space-y-4 border-t md:border-t-0 md:border-l border-slate-700/80 pt-4 md:pt-0 md:pl-6">
+              <!-- ডেলিভারি ম্যান ও পেমেন্ট বক্স -->
+              <div class="bg-gradient-to-b from-slate-900/90 to-slate-950 p-6 rounded-2xl border-2 border-emerald-500/40 space-y-4 shadow-xl">
+                
                 <div>
-                  <span class="text-xs uppercase font-bold text-slate-400">ডেলিভারি ম্যানের নাম:</span>
-                  <div class="text-lg font-bold text-emerald-400 mt-0.5"><i class="fa-solid fa-person-biking mr-1.5"></i>${info.riderName}</div>
-                </div>
-
-                <div>
-                  <span class="text-xs uppercase font-bold text-slate-400">ডেলিভারি ম্যানের মোবাইল নাম্বার:</span>
-                  <div class="text-xl font-bold text-white mt-0.5">
-                    ${info.riderPhone !== '0' ? `<a href="tel:${info.riderPhone}" class="text-emerald-400 hover:underline flex items-center gap-1.5"><i class="fa-solid fa-phone text-sm"></i>${info.riderPhone}</a>` : '<span class="text-slate-500">অ্যাসাইন করা হয়নি</span>'}
+                  <span class="text-xs uppercase font-bold text-slate-400 block mb-1">ডেলিভারি ম্যানের নাম:</span>
+                  <div class="text-xl font-black text-emerald-400 bg-slate-900/80 p-3 rounded-xl border border-emerald-500/30 flex items-center gap-2">
+                    <i class="fa-solid fa-person-biking text-emerald-400"></i> ${info.riderName}
                   </div>
                 </div>
 
                 <div>
-                  <span class="text-xs uppercase font-bold text-slate-400">টাকার পরিমাণ (COD):</span>
-                  <div class="text-2xl font-black text-rose-400 mt-0.5">৳ ${info.amount} টাকা</div>
+                  <span class="text-xs uppercase font-bold text-slate-400 block mb-1">ডেলিভারি ম্যানের মোবাইল নাম্বার:</span>
+                  <div class="text-2xl font-black text-white bg-slate-900/80 p-3 rounded-xl border border-emerald-500/30 flex items-center justify-between">
+                    <span><i class="fa-solid fa-phone-volume text-emerald-400 mr-2"></i>${info.riderPhone}</span>
+                    ${info.riderPhone !== '0' ? `<a href="tel:${info.riderPhone}" class="text-xs bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-3 py-1.5 rounded-lg transition-all">কল করুন</a>` : ''}
+                  </div>
+                </div>
+
+                <div>
+                  <span class="text-xs uppercase font-bold text-slate-400 block mb-1">টাকার পরিমাণ (COD):</span>
+                  <div class="text-3xl font-black text-rose-400 bg-rose-500/10 p-3.5 rounded-xl border border-rose-500/30 flex items-center justify-between">
+                    <span>৳ ${info.amount} টাকা</span>
+                    <span class="text-xs font-bold text-slate-400 uppercase bg-black/40 px-2 py-1 rounded">ক্যাশ অন ডেলিভারি</span>
+                  </div>
                 </div>
 
                 <div class="pt-2">
                   <a href="${info.riderPhone !== '0' ? `tel:${info.riderPhone}` : '#'}" 
-                     class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition-all text-center">
-                    <i class="fa-solid fa-phone-volume"></i>
-                    ডেলিভারি ম্যানকে সরাসরি কল করুন
+                     class="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black py-4 px-6 rounded-2xl shadow-xl transition-all text-lg call-btn-glow">
+                    <i class="fa-solid fa-phone-flip text-xl"></i>
+                    ডেলিভারি ম্যানকে সরাসরি কল দিন
                   </a>
                 </div>
+
               </div>
 
             </div>
 
-            <!-- কল টু অ্যাকশন ও নোটিশ -->
-            <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 text-center">
-              <p class="text-amber-300 font-bold text-base flex items-center justify-center gap-2">
-                <i class="fa-solid fa-hand-holding-hand"></i>
+            <!-- গুরুত্বপূর্ণ কল টু অ্যাকশন প্রম্পট -->
+            <div class="bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-amber-500/20 border-2 border-amber-500/50 rounded-2xl p-4 text-center mb-8">
+              <p class="text-amber-300 font-extrabold text-base sm:text-lg flex items-center justify-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation text-amber-400"></i>
                 দয়া করে এই নাম্বারে কল দিয়ে ডেলিভারি ম্যান এর কাছ থেকে পার্সেলটা গ্রহণ করেন।
               </p>
-              <p class="text-xs text-slate-400 mt-1">
-                পার্সেলটি হাতে পাওয়ার পর প্রতিষ্ঠানের পক্ষ থেকে আইনি সুবিধা, আইডি কার্ড ও মাসিক বেতন কাঠামো অবিলম্বে চালু করা হবে।
-              </p>
             </div>
+
+            <!-- নিচে স্থানান্তরিত নোটিশ ও বার্তা -->
+            <div class="bg-gradient-to-br from-rose-950/70 via-slate-900 to-rose-950/70 border-2 border-rose-500/60 rounded-3xl p-6 sm:p-7 shadow-2xl relative overflow-hidden">
+              <div class="absolute -right-8 -bottom-8 text-rose-500/10 text-9xl pointer-events-none">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="flex items-start gap-4 sm:gap-5 relative z-10">
+                <div class="h-14 w-14 rounded-2xl bg-rose-500/20 border border-rose-500/40 text-rose-400 flex items-center justify-center text-3xl shrink-0">
+                  <i class="fa-solid fa-bullhorn animate-pulse"></i>
+                </div>
+                <div class="space-y-2">
+                  <h4 class="text-lg sm:text-xl font-black text-rose-300 leading-snug">
+                    সম্মানিত প্রতিনিধি, অনুগ্রহ করে ডেলিভারি ম্যানের কাছ থেকে আপনার পার্সেলটি অতিসত্বর গ্রহণ করুন!
+                  </h4>
+                  <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                    আপনার প্রাতিষ্ঠানিক সাংবাদিক উপকরণ, আইডি কার্ড ও নিয়োগ সংক্রান্ত সামগ্রী এখনো ডেলিভারি পয়েন্টে রয়েছে। এটি গ্রহণ করার পরেই আপনার নাম সিস্টেমে চূড়ান্ত ভেরিফায়েড হবে এবং আপনি প্রতিষ্ঠানের সকল সুবিধা ভোগ করতে পারবেন।
+                  </p>
+                </div>
+              </div>
+            </div>
+
           `;
           container.appendChild(card);
         });
       } else {
         container.innerHTML = `
-          <div class="bg-rose-950/40 border border-rose-800 rounded-3xl p-8 text-center shadow-xl">
-            <div class="h-16 w-16 bg-rose-500/20 text-rose-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
-              <i class="fa-solid fa-circle-xmark"></i>
+          <div class="bg-gradient-to-b from-slate-900 to-rose-950/60 border-2 border-rose-500/50 rounded-3xl p-8 sm:p-12 text-center shadow-2xl glow-card">
+            <div class="h-20 w-20 bg-rose-500/20 text-rose-400 rounded-3xl flex items-center justify-center text-4xl mx-auto mb-4 border border-rose-500/30">
+              <i class="fa-solid fa-circle-exclamation"></i>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-2">কোনো তথ্য পাওয়া যায়নি</h3>
-            <p class="text-slate-400 max-w-md mx-auto text-sm leading-relaxed">
-              আপনার দেওয়া নম্বরটি (${rawInput}) দিয়ে কোনো পার্সেল এন্ট্রি পাওয়া যায়নি। অনুগ্রহ করে সঠিক ১১ ডিজিটের মোবাইল নম্বরটি চেক করে পুনরায় চেষ্টা করুন অথবা কেন্দ্রীয় অফিসে যোগাযোগ করুন।
+            <h3 class="text-2xl font-black text-white mb-2">কোনো পার্সেল রেকর্ড পাওয়া যায়নি</h3>
+            <p class="text-slate-300 max-w-md mx-auto text-sm leading-relaxed mb-6 font-medium">
+              আপনার প্রবেশকৃত নম্বরটি (<span class="text-amber-400 font-bold">${rawInput}</span>) দিয়ে কোনো তথ্য পাওয়া যায়নি। অনুগ্রহ করে সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন অথবা কেন্দ্রীয় দপ্তরে যোগাযোগ করুন।
             </p>
+            <button onclick="document.getElementById('phoneInput').focus()" class="bg-slate-800 hover:bg-slate-700 text-rose-400 font-bold px-6 py-2.5 rounded-xl border border-rose-500/30 transition-all text-sm">
+              পুনরায় নম্বর লিখুন
+            </button>
           </div>
         `;
       }
